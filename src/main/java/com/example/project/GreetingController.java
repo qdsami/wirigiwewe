@@ -39,8 +39,14 @@ public class GreetingController {
     }
 
     @PostMapping("filter")
-    public String filter(@RequestParam String filter, Model model,  @ModelAttribute("user") User user) {
-        List<User> users = userRepo.findByCity(filter);
+    public String filter(@RequestParam String filter, Model model, @ModelAttribute("user") User user) {
+        Iterable<User> users;
+        if (filter != null && filter.isEmpty()) {
+            users = userRepo.findByCity(filter);
+        } else {
+            users = userRepo.findAll();
+        }
+
         model.addAttribute("users", users);
         return "main";
     }
