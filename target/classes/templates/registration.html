@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:if="${param.error}">
+    Invalid username and password.
+</div>
+<div th:if="${param.logout}">
+    You have been logged out.
+</div>
+<div th:if="${message}">
+  <p th:text="${message}"></p>
+</div>
+Add new user
+<form th:method="POST" th:action="@{/registration}" th:object="${user}">
+    <label for="name">Enter login:</label>
+    <input type="text" th:field="*{login}" id="login">
+    <br/>
+    <div style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">error Name</div>
+    <label for="email">Enter email:</label>
+    <input type="text" th:field="*{email}" id="email">
+    <br/>
+    <label for="password">Enter password:</label>
+    <input type="text" th:field="*{password}" id="password">
+    <br/>
+    <label for="name">Enter name:</label>
+    <input type="text" th:field="*{name}" id="name">
+    <br/>
+    <label for="age">Enter age:</label>
+    <input type="text" th:field="*{age}" id="age">
+    <br/>
+    <label for="city">Enter city:</label>
+    <input type="text" th:field="*{city}" id="city">
+    <br/>
+    <label for="description">Enter description:</label>
+    <input type="text" th:field="*{description}" id="description">
+    <br/>
+    <label for="link">Enter link:</label>
+    <input type="text" th:field="*{link}" id="link">
+    <br/>
+    <input type="submit" value="Create!">
+</form>
+</body>
+</html>

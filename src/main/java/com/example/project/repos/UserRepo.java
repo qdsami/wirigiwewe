@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface UserRepo extends CrudRepository<User, Long> {
     List<User> findByCity(String city);
+
+    User findByLogin(String login);
 }

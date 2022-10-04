@@ -6,30 +6,9 @@
 </head>
 <body>
 <div>
-    <form th:method="POST" th:action="@{/}" th:object="${user}">
-        <label for="name">Enter login:</label>
-        <input type="text" th:field="*{login}" id="login">
-        <br/>
-        <div style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">error Name</div>
-        <label for="email">Enter email:</label>
-        <input type="text" th:field="*{email}" id="email">
-        <br/>
-        <label for="name">Enter name:</label>
-        <input type="text" th:field="*{name}" id="name">
-        <br/>
-        <label for="age">Enter age:</label>
-        <input type="text" th:field="*{age}" id="age">
-        <br/>
-        <label for="city">Enter city:</label>
-        <input type="text" th:field="*{city}" id="city">
-        <br/>
-        <label for="description">Enter description:</label>
-        <input type="text" th:field="*{description}" id="description">
-        <br/>
-        <label for="link">Enter link:</label>
-        <input type="text" th:field="*{link}" id="link">
-        <br/>
-        <input type="submit" value="Create!">
+    <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
     </form>
 </div>
 <div>
