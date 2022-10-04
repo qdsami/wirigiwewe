@@ -5,7 +5,6 @@
     <title>Title</title>
 </head>
 <body>
-
 <div>
     <form th:method="POST" th:action="@{/}" th:object="${user}">
         <label for="name">Enter login:</label>
@@ -33,7 +32,12 @@
         <input type="submit" value="Create!">
     </form>
 </div>
-
+<div>
+    <form action="filter" method="post">
+        <input type="text" name="filter">
+        <button type="submit">Найти</button>
+    </form>
+</div>
 
 <div th:each="user : ${users}">
   <p th:text="${user.getId() + ', ' + user.getName() + ', ' + user.getAge() + ', '  + user.getCity()}">user</p>
