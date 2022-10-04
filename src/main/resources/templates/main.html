@@ -12,14 +12,14 @@
     </form>
 </div>
 <div>
-    <form action="filter" method="post">
-        <input type="text" name="filter">
+    <form action="/main" method="get">
+        <input type="text" name="filter" th:value="${filter}">
         <button type="submit">Найти</button>
     </form>
 </div>
 
 <div th:each="user : ${users}">
-  <p th:text="${user.getId() + ', ' + user.getName() + ', ' + user.getAge() + ', '  + user.getCity()}">user</p>
+    <p th:text="${user.getId() + ', ' + user.getName() + ', ' + user.getAge() + ', '  + user.getCity()}">user</p>
 </div>
 </body>
 </html>

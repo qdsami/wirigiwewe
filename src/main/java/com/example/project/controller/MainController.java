@@ -18,29 +18,17 @@ public class MainController {
     }
 
     @GetMapping("/main")
-    public String main(Model model, @ModelAttribute("user") User user) {
-        Iterable<User> users = userRepo.findAll();
-        model.addAttribute("users", users);
-        return "main";
-    }
-
-    @PostMapping("/main")
-    public String add(Model model) {
-        Iterable<User> users = userRepo.findAll();
-        model.addAttribute("users", users);
-        return "main";
-    }
-
-    @PostMapping("filter")
-    public String filter(@RequestParam String filter, Model model) {
+    public String main(@RequestParam(required = false, defaultValue = "")String filter,
+                       Model model, @ModelAttribute("user") User user) {
         Iterable<User> users;
+
         if (filter != null && !filter.isEmpty()) {
             users = userRepo.findByCity(filter);
         } else {
             users = userRepo.findAll();
         }
         model.addAttribute("users", users);
+        model.addAttribute("filter", filter);
         return "main";
     }
-
 }
