@@ -37,4 +37,21 @@ public class MainController {
         model.addAttribute("filter", filter);
         return "main";
     }
+
+    @GetMapping("/likes")
+    public String likes (@RequestParam(required = false, defaultValue = "")String filter,
+                       Model model, @ModelAttribute("user") User user) {
+        Iterable<User> users;
+
+        if (filter != null && !filter.isEmpty()) {
+            users = userRepo.findByCity(filter);
+        } else {
+            users = userRepo.findAll();
+        }
+        Iterable<Photo> photos = photoRepo.findAll();
+        model.addAttribute("users", users);
+        model.addAttribute("photos", photos);
+        model.addAttribute("filter", filter);
+        return "likes";
+    }
 }

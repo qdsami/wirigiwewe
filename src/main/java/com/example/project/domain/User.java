@@ -57,6 +57,9 @@ public class User implements UserDetails {
         this.link = link;
     }
 
+    public boolean isAdmin(){
+        return roles.contains(Role.ADMIN);
+    }
     public Long getId() {
         return id;
     }
