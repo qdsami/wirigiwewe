@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/static/style.css"/>
 </head>
 <body>
 <div>
@@ -22,5 +23,11 @@
 <div th:each="user : ${users}">
     <p th:text="${user.getId() + ', ' + user.getName() + ', ' + user.getAge() + ', '  + user.getCity()}">user</p>
 </div>
+
+<div th:each="photo : ${photos}">
+<!--    <img th:src="@{/img/{filename}(filename=${photo.getFilename()})}">-->
+    <img th:src="@{'/img/'+${photo.filename}}">
+</div>
+
 </body>
 </html>

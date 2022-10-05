@@ -40,9 +40,10 @@
                th:value="${role.getAuthority()}"
                th:text="${role.getAuthority()}" class="m-2"/>
     </th:block>
-<!--    <#list roles as role>-->
-<!--    <label><input type="checkbox" name="${role}" ${user.roles?seq_contains(role)?string("checked", "")}>${role}</label>-->
+    <br/>
     <input type="number" th:field="*{id}" name="id">
+    <br/>
+    <span><a href="/user/addPhoto">addPhoto</a></span>
     <button type="submit">Save</button>
 </form>
 </body>
