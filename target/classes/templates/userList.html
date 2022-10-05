@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Role</th>
+        <th>a</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:utext="${user.getId()}">index</td>
+        <td th:utext="${user.getName()}">index</td>
+        <td>
+            <span th:each="role,iterStat : ${user.getRoles()}"
+                  th:text="${role} + ${!iterStat.last ? ', ' : ''}"></span>
+        </td>
+        <td> <a th:href="@{/user/{id}(id=${user.getId()})}">edit</a></td>
+    </tr>
+</table>
+</body>
+</html>

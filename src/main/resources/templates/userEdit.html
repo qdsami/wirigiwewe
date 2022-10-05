@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User editor</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/user}" th:object="${user}">
+    <label for="login">Enter login:</label>
+    <input type="text" th:field="*{login}" id="login">
+    <br/>
+    <div style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">error Name</div>
+    <label for="email">Enter email:</label>
+    <input type="text" th:field="*{email}" id="email">
+    <br/>
+    <label for="password">Enter password:</label>
+    <input type="text" th:field="*{password}" id="password">
+    <br/>
+
+    <label for="name">Enter name:</label>
+    <input type="text" th:field="*{name}" id="name">
+    <br/>
+
+    <label for="age">Enter age:</label>
+    <input type="text" th:field="*{age}" id="age">
+    <br/>
+    <label for="city">Enter city:</label>
+    <input type="text" th:field="*{city}" id="city">
+    <br/>
+    <label for="description">Enter description:</label>
+    <input type="text" th:field="*{description}" id="description">
+    <br/>
+    <label for="link">Enter link:</label>
+    <input type="text" th:field="*{link}" id="link">
+    <br/>
+    <th:block th:each="role:${roles}">
+        <input type="checkbox"
+               name="roles"
+               th:field="*{roles}"
+               th:value="${role.getAuthority()}"
+               th:text="${role.getAuthority()}" class="m-2"/>
+    </th:block>
+<!--    <#list roles as role>-->
+<!--    <label><input type="checkbox" name="${role}" ${user.roles?seq_contains(role)?string("checked", "")}>${role}</label>-->
+    <input type="number" th:field="*{id}" name="id">
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>
