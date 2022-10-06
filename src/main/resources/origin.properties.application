@@ -1,0 +1,14 @@
+spring.jpa.hibernate.ddl-auto=
+spring.datasource.url=
+spring.datasource.username
+spring.datasource.password=
+spring.datasource.driver-class-name=
+#spring.jpa.show-sql: true
+upload.path=
+
+spring.mail.host=
+spring.mail.username=
+spring.mail.password=
+spring.mail.port=
+spring.mail.protocol=
+mail.debug=

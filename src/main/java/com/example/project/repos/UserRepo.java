@@ -10,4 +10,6 @@ public interface UserRepo extends CrudRepository<User, Long> {
 
     User findByLogin(String login);
     User findUserById(Long id);
+
+    User findByActivationCode(String code);
 }
